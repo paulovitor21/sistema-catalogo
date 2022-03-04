@@ -30,20 +30,28 @@
         
         return $comando->execute();
     }
-    
-    
-    
-    
-    /*
-    function excluirProduto($id_produto) {
+
+    function selecionarProdutoId($id_produto) {
         global $link;
-        
-        $comando = $link->prepare("DELETE FROM produto WHERE id_produto = ?");
-        
-        $comando->bind_param("i", id_produto);
-        
-        return $comando->execute;
+        $comando = $link->prepare("SELECT * FROM produto WHERE id_produto = ?");
+        $comando->bind_param("i", $id_produto);
+        $comando->execute();
+        $resultado = $comando->get_result();
+        //retorna o resultado como um objeto
+        return $resultado->fetch_object();
     }
-    */
-    var_dump(excluirProduto(1));
+
+    function selecionarTodosProdutos() {
+        global $link;
+        $comando = $link->prepare("SELECT * FROM produto");
+        $comando->execute();
+        $resultado = $comando->get_result();
+        // retorna cada um dos objetos da consulta
+        while ($pesquisa = $resultado->fetch_object()) { // busca o objeto e armazena na variavel pesquisa
+            $produtos[] = $pesquisa;
+        }
+        return $produtos; // retorna todos os produtos
+    }
+
+    var_dump(selecionarTodosProdutos());
 
