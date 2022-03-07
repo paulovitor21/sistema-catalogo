@@ -1,6 +1,6 @@
 <?php
 
-    include '../db/conexao.php';
+    include 'db/conexao.php';
     
     function inserirProduto($nome, $descricao, $marca, $preco, $foto, $categoria) {
         global $link;
@@ -52,6 +52,4 @@
         }
         return $produtos; // retorna todos os produtos
     }
-
-    var_dump(selecionarTodosProdutos());
 

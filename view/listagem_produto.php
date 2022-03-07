@@ -46,46 +46,42 @@
     </nav>
     
     <div class="container">
-        <h1 class="mt-4">Cadastro de Produtos</h1>
+        <div class="row mt-4">
+            <div class="col-6">
+                <h1>Listagem de Produtos</h1>
+            </div>
+            <div class="col-6 text-end">
+                <a href="index.php?c=produto&m=adicionar" class="btn btn-success">Adicionar Produto</a>
+            </div>
+        </div>
+       
         <hr>
-        <form  method="post" action="index.php?c=produto&m=salvar" enctype="multipart/form-data">
+        <table class="table">
+            <thead>
+                <tr class="text-center">
+                    <th>Nome</th>
+                    <th>Marca</th>
+                    <th>Preço</th>
+                    <th>Categoria</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
 
-            <div class="mb-3">
-                <label for="nome" class="form-label">Nome</label>
-                <input type="text" name="nome" id="nome" class="form-control" value="">
-            </div>
-
-            <div class="mb-3">
-                <label for="descricao" class="form-label">Descrição</label>
-                <textarea name="descricao" id="descricao" class="form-control"></textarea>
-            </div>
-
-            <div class="mb-3">
-                <label for="marca" class="form-label">Marca</label>
-                <input type="text" name="marca" id="marca" class="form-control" value="">
-            </div>
-
-            <div class="mb-3">
-                <label for="preco" class="form-label">Preço</label>
-                <input type="number" step="any" name="preco" id="preco" class="form-control" value="">
-            </div>
-
-            <div class="mb-3">
-                <label for="foto" class="form-label">Foto</label>
-                <input type="file" name="foto" id="foto" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="categoria" class="form-label">Categoria</label>
-                <select name="categoria" id="categoria" class="form-select">
-                    <?php foreach ($categorias as $categoria) : ?>
-                    <option value="<?php echo $categoria->id_categoria ?>"><?php echo $categoria->nome_categoria ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
-        </form>
+            <tbody>
+                <?php foreach($produtos as $produto): ?>
+                    <tr class="text-center">
+                        <td><?php echo $produto->nome_produto ?></td>
+                        <td><?php echo $produto->marca ?></td>
+                        <td><?php echo $produto->preco ?></td>
+                        <td><?php echo $produto->id_categoria ?></td>
+                        <td>
+                            <a href="#" class="btn btn-danger">Excluir</a>
+                            <a href="#" class="btn btn-primary">Atualizar</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
     </div>
 
     <hr>
@@ -101,7 +97,5 @@
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-    
   </body>
 </html>
