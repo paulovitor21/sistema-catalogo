@@ -75,8 +75,8 @@
                         <td><?php echo $produto->preco ?></td>
                         <td><?php echo $produto->id_categoria ?></td>
                         <td>
-                            <a href="#" class="btn btn-danger">Excluir</a>
-                            <a href="#" class="btn btn-primary">Atualizar</a>
+                            <a href="index.php?c=produto&m=excluir&id=<?php echo $produto->id_produto ?>" class="btn btn-danger">Excluir</a>
+                            <a href="index.php?c=produto&m=editar&id=<?php echo $produto->id_produto ?>" class="btn btn-primary">Atualizar</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

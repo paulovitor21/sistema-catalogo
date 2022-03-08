@@ -2,6 +2,7 @@
     
     require_once 'model/produto.php';
     require_once 'model/categoria.php';
+    require_once 'util/upload.php';
 
     function index() {
         $produtos = selecionarTodosProdutos();
@@ -14,12 +15,36 @@
     }
 
     function salvar() {
-        $dados = filter_input(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        //var_dump($_POST);
+        $dados = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $nome = $dados['nome'];
         $descricao = $dados['descricao'];
         $marca = $dados['marca'];
         $preco = $dados['preco'];
         $categoria = $dados['categoria'];
-        inserirProduto($nome, $descricao, $marca, $preco, "semfoto", $categoria);
+        $foto = upload("foto");
+        if(!$foto) {
+            $foto = "semfoto.png";
+        }
+        inserirProduto($nome, $descricao, $marca, $preco, $foto, $categoria);
         header("Location: index.php?c=produto");
+        
+    
+    }
+
+    function excluir() {
+        if (isset($_GET["id"]) && is_numeric($_GET["id"])) {
+            $id = $_GET["id"];
+            excluirProduto($id);
+        }
+        header("Location: index.php?c=produto"); // redireciona para a pagina produtos
+    }
+
+    function editar() {
+        if (isset($_GET["id"]) && is_numeric($_GET["id"])) {
+            $id = $_GET["id"];
+            $categorias = selecionarTodasCategorias();
+            $produto = selecionarProdutoId($id);
+            include "view/formulario_produto.php";
+        }
     }
