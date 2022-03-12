@@ -22,11 +22,20 @@
         $marca = $dados['marca'];
         $preco = $dados['preco'];
         $categoria = $dados['categoria'];
+        $nome_foto = $dados['name_foto'];
         $foto = upload("foto");
         if(!$foto) {
-            $foto = "semfoto.png";
+            $foto = $nome_foto;
         }
-        inserirProduto($nome, $descricao, $marca, $preco, $foto, $categoria);
+        
+        if (isset($_POST["id"]) && is_numeric($_POST["id"])) {
+            $id = $_POST["id"];
+            atualizarProduto($nome, $descricao, $marca, $preco, $foto, $categoria, $id);
+        }
+        else {
+            inserirProduto($nome, $descricao, $marca, $preco, $foto, $categoria);
+        }
+        
         header("Location: index.php?c=produto");
         
     

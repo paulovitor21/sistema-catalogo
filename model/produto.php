@@ -43,7 +43,7 @@
 
     function selecionarTodosProdutos() {
         global $link;
-        $comando = $link->prepare("SELECT * FROM produto");
+        $comando = $link->prepare("SELECT produto.*, categoria.nome_categoria as categoria FROM produto inner join categoria on produto.id_categoria = categoria.id_categoria");
         $comando->execute();
         $resultado = $comando->get_result();
         // retorna cada um dos objetos da consulta
