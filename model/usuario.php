@@ -81,3 +81,14 @@
         return $usuarios; // retorna todos os usuarios
     }
 
+    function selecionarUsuarioLoginSenha($login, $senha) {
+        global $link;
+        $comando = $link->prepare("SELECT * FROM usuario WHERE login = ? and senha = ?");
+        $comando->bind_param("ss", $login, $senha);
+        $comando->execute();
+        $resultado = $comando->get_result();
+        //retorna o resultado como um objeto
+        return $resultado->fetch_object();
+    }
+
+
