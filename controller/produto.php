@@ -1,5 +1,6 @@
 <?php
     
+    require_once 'util/controla_acesso.php';
     require_once 'model/produto.php';
     require_once 'model/categoria.php';
     require_once 'util/upload.php';

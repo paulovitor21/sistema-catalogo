@@ -41,14 +41,14 @@
     function inserirUsuario($nome, $nacionalidade, $login, $senha) {
         global $link;
         $comando = $link->prepare("INSERT INTO usuario (nome, nacionalidade, login, senha) VALUES (?,?,?,?)");
-        $comando->bind_param("ssss", $nome, $nacionalidade, $login, $senha);
+        $comando->bind_param("ssss", $nome, $nacionalidade, $login, md5($senha));
         return $comando->execute();
     }
     
     function atualizarUsuario($nome, $nacionalidade, $login, $senha, $id_usuario) {
         global $link;
         $comando = $link->prepare("UPDATE usuario SET `nome`=?, `nacionalidade`=?, `login`=?, `senha`=? WHERE `id_usuario`=?");
-        $comando->bind_param("ssssi", $nome, $nacionalidade, $login, $senha, $id_usuario);
+        $comando->bind_param("ssssi", $nome, $nacionalidade, $login, md5($senha), $id_usuario);
         return $comando->execute();
     }
     

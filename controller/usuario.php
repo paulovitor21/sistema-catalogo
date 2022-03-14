@@ -1,5 +1,6 @@
 <?php
     
+    require_once 'util/controla_acesso.php';
     require_once 'model/usuario.php';
 
     function index() {

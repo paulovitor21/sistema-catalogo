@@ -1,7 +1,8 @@
 <?php
     
+    require_once 'util/controla_acesso.php';
     require_once 'model/categoria.php';
-
+   
     function index() {
         $categorias = selecionarTodasCategorias();
         include 'view/listagem_categoria.php';
