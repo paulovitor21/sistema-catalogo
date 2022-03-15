@@ -29,7 +29,7 @@
             <div class="mb-3">
                 <label for="foto" class="form-label">Foto</label>
                 <input type="file" name="foto" id="foto" class="form-control">
-                <input type="hidden" name="name_foto" value="<?php echo isset($produto) ? $produto->foto : "semfoto.png" ?>">
+                <input type="hidden" name="name_foto" value="<?php echo isset($produto) ? $produto->foto : "semfoto.jpeg" ?>">
             </div>
 
             <div class="mb-3">
@@ -37,9 +37,7 @@
                 <select name="categoria" id="categoria" class="form-select">
                     <?php foreach ($categorias as $categoria) : ?>
                     <option value="<?php echo $categoria->id_categoria ?>" <?php echo (isset($produto) && $produto->id_categoria == $categoria->id_categoria) ? "selected" : "" ?>>
-                        <?php echo $categoria->nome_categoria ?>
-
-                    </option>
+                        <?php echo $categoria->nome_categoria ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>

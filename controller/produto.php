@@ -24,13 +24,15 @@
         $preco = $dados['preco'];
         $categoria = $dados['categoria'];
         $nome_foto = $dados['name_foto'];
+
         $foto = upload("foto");
         if(!$foto) {
             $foto = $nome_foto;
         }
         
-        if (isset($_POST["id"]) && is_numeric($_POST["id"])) {
-            $id = $_POST["id"];
+        // verifica se o produto já existe na base no momento de atualizar o produto
+        if (isset($_POST["id_produto"]) && is_numeric($_POST["id_produto"])) {
+            $id = $_POST["id_produto"];
             atualizarProduto($nome, $descricao, $marca, $preco, $foto, $categoria, $id);
         }
         else {

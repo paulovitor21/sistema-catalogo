@@ -3,7 +3,14 @@
     <?php include "./view/template_menu1.php" ?>
 
     <div class="container">
-        <div class="row justify-content-center">
+    
+<!--
+    <div class="col-12 mt-1 text-end">
+        <a href="index.php?c=usuario&m=adicionar" class="btn btn-success">Primeiro acesso</a>
+    </div>
+-->
+    <div class="row justify-content-center">
+           
             <fieldset class="mt-4 col-md-5 col-sm-12">
                 <?php if(isset($erros)) : ?>
                     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -25,7 +32,7 @@
                         </div>
                     </div>
                 <?php endif ?>
-
+                
                 <legend>Controle de acesso</legend>
                 <hr>
                 <form method="post" action="index.php?c=login&m=login">
@@ -39,9 +46,10 @@
                         <input type="password" class="form-control" name="senha" id="senha">
                     </div>
 
-                    <div class="mt-1">
-                        <button class="btn btn-success">Entrar</button>
+                    <div class="mt-3">
+                        <button class="btn btn-primary">Entrar</button>
                     </div>
+
                 </form>
             </fieldset>
         </div>

@@ -11,7 +11,7 @@
         </div>
        
         <hr>
-        <table class="table">
+        <table class="table" id="myTable">
             <thead>
                 <tr class="text-center">
                     <th>Nome</th>
