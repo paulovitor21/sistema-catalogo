@@ -1,5 +1,8 @@
 <?php
     
+    if(!defined("CONTROLADOR")) {
+        die("Solicitção não atendida");
+    }
     
     require_once 'model/produto.php';
     require_once 'model/categoria.php';

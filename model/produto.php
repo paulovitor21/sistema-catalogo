@@ -1,5 +1,8 @@
 <?php
 
+if(!defined("CONTROLADOR")) {
+    die("Solicitção não atendida");
+}
     include 'db/conexao.php';
     
     function inserirProduto($nome, $descricao, $marca, $preco, $foto, $categoria) {

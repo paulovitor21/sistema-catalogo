@@ -1,5 +1,7 @@
 <?php
 
+define("CONTROLADOR", "INDEX");
+
     if (isset($_GET["c"])) {
         $controlador = $_GET["c"];
         if (file_exists("controller/$controlador.php")) {
@@ -17,4 +19,8 @@
         else {
             die("Esse recurso não existe.");
         }
+    }
+    else {
+        include "controller/catalogo.php";
+        index();
     }

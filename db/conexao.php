@@ -1,9 +1,9 @@
 <?php
 
     $host = "localhost";
-    $user = "root";
-    $password = "prog1278";
-    $database = "db_prog_web";
+    $user = "id18627799_root";
+    $password = "Icetufam123*";
+    $database = "id18627799_db_catalogo";
 
     $link = new mysqli($host, $user, $password, $database);
     //$link = new mysqli($host, $user, $password, $database);

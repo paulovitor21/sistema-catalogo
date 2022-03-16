@@ -1,4 +1,7 @@
 <?php
+    if(!defined("CONTROLADOR")) {
+        die("Solicitção não atendida");
+    }
     
     require_once 'util/controla_acesso.php';
     require_once 'model/produto.php';

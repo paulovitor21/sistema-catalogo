@@ -1,5 +1,10 @@
+<?php
+    if(!defined("CONTROLADOR")) {
+        die("Solicitção não atendida");
+    }
+?>
 
-    <?php include "./view/template_header.php" ?>
+<?php include "./view/template_header.php" ?>
     <?php include "./view/template_menu1.php" ?>
 
     <div class="container">

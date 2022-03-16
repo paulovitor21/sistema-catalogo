@@ -1,5 +1,8 @@
 <?php
-
+    if(!defined("CONTROLADOR")) {
+        die("Solicitção não atendida");
+    }
+    
     require_once 'model/usuario.php';
 
     function index() {

@@ -1,6 +1,10 @@
 <?php
 
-    include 'db/conexao.php';
+if(!defined("CONTROLADOR")) {
+    die("Solicitção não atendida");
+}
+    
+include 'db/conexao.php';
     
     function inserirCategoria($nome_categoria) {
         global $link;
