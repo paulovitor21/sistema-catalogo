@@ -13,7 +13,7 @@
                             <div class="card-body">
                                 <p class="card-text"><?php echo $produto->nome_produto ?></p>
                                 <h5 class="card-title">R$ <?php echo $produto->preco ?></h5>
-                                <a href="#" class="btn btn-success">Comprar</a>
+                                <a href="index.php?c=catalogo&m=visualizarProduto&id=<?php echo $produto->id_produto ?>" class="btn btn-success">Visualizar</a>
                             </div>
                         </div>
                     </div>

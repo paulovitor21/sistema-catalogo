@@ -30,7 +30,7 @@
 
     function selecionarProdutoId($id_produto) {
         global $link;
-        $comando = $link->prepare("SELECT * FROM produto WHERE id_produto = ?");
+        $comando = $link->prepare("SELECT produto.*, categoria.nome_categoria as categoria FROM produto inner join categoria on produto.id_categoria = categoria.id_categoria WHERE id_produto = ?");
         $comando->bind_param("i", $id_produto);
         $comando->execute();
         $resultado = $comando->get_result();
@@ -63,4 +63,19 @@
         }
         return $produtos; // retorna todos os produtos
     }
+
+    function selecionarPorNome($nome_produto) {
+        global $link;
+        $comando = $link->prepare("SELECT produto.*, categoria.nome_categoria as categoria FROM produto inner join categoria on produto.id_categoria = categoria.id_categoria WHERE produto.nome_produto LIKE CONCAT('%',?,'%')");
+        $comando->bind_param("s", $nome_produto);
+        $comando->execute();
+        $resultado = $comando->get_result();
+        // retorna cada um dos objetos da consulta
+        while ($pesquisa = $resultado->fetch_object()) { // busca o objeto e armazena na variavel pesquisa
+            $produtos[] = $pesquisa;
+        }
+        return $produtos; // retorna todos os produtos
+    }
+
+
 

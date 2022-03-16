@@ -20,4 +20,21 @@
         }
     }
 
+    function pesquisar() {
+        $dados = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        if (isset($dados["pesquisar"])) {
+            $produtos = selecionarPorNome($dados["pesquisar"]);
+            $categorias = selecionarTodasCategorias();
+            include 'view/produtos_cards.php';
+        }
+    }
+
+    function visualizarProduto() {
+        if (isset($_GET["id"]) && is_numeric($_GET["id"])) {
+            $id = $_GET["id"];
+            $produto = selecionarProdutoId($id);
+            $categorias = selecionarTodasCategorias();
+            include 'view/visualizar_produto.php';
+        }
+    }
     
