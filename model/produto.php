@@ -50,3 +50,17 @@
         return $produtos; // retorna todos os produtos
     }
 
+
+    function selecionarTodosProdutosCategoria($id_categoria) {
+        global $link;
+        $comando = $link->prepare("SELECT produto.*, categoria.nome_categoria as categoria FROM produto inner join categoria on produto.id_categoria = categoria.id_categoria WHERE categoria.id_categoria = ?");
+        $comando->bind_param("i", $id_categoria);
+        $comando->execute();
+        $resultado = $comando->get_result();
+        // retorna cada um dos objetos da consulta
+        while ($pesquisa = $resultado->fetch_object()) { // busca o objeto e armazena na variavel pesquisa
+            $produtos[] = $pesquisa;
+        }
+        return $produtos; // retorna todos os produtos
+    }
+

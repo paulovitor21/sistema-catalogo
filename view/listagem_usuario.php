@@ -11,6 +11,7 @@
         </div>
        
         <hr>
+
         <table class="table">
             <thead>
                 <tr class="text-center">
