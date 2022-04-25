@@ -1,3 +1,5 @@
+<!--recebe as requisições do usuário e determinar qual view deve ser exibida, ou como os dados deve ser manipulados. -->
+
 <?php
     if(!defined("CONTROLADOR")) {
         die("Solicitção não atendida");

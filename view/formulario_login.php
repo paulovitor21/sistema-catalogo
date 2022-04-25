@@ -9,11 +9,6 @@
 
     <div class="container">
     
-<!--
-    <div class="col-12 mt-1 text-end">
-        <a href="index.php?c=usuario&m=adicionar" class="btn btn-success">Primeiro acesso</a>
-    </div>
--->
     <div class="row justify-content-center">
            
             <fieldset class="mt-4 col-md-5 col-sm-12">

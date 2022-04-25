@@ -25,7 +25,7 @@
 
         <h4>Informações do Produto</h4>
         <hr>
-        <p>R$ <?php echo $produto->descricao ?></p>
+        <p><?php echo $produto->descricao ?></p>
     </div>
 
 <?php include "./view/template_rodape.php" ?>

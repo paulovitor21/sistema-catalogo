@@ -1,3 +1,4 @@
+<!-- manipulação dos dados - validação e acesso ao banco de dados. -->
 <?php
 
 if(!defined("CONTROLADOR")) {
